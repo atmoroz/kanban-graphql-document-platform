@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#121A35"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="232" y1="98" x2="984" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="315" r="200" stroke="url(#accent)" stroke-width="2" opacity="0.55"/>
+  <circle cx="600" cy="315" r="140" stroke="#7C3AED" stroke-width="2" opacity="0.6"/>
+  <circle cx="600" cy="315" r="70" stroke="#A855F7" stroke-width="2" opacity="0.7"/>
+
+  <line x1="600" y1="115" x2="250" y2="462" stroke="#7C3AED" stroke-width="2" opacity="0.65"/>
+  <line x1="600" y1="115" x2="950" y2="462" stroke="#7C3AED" stroke-width="2" opacity="0.65"/>
+  <line x1="250" y1="462" x2="950" y2="462" stroke="#7C3AED" stroke-width="2" opacity="0.65"/>
+
+  <circle cx="600" cy="115" r="10" fill="#C084FC"/>
+  <circle cx="250" cy="462" r="10" fill="#C084FC"/>
+  <circle cx="950" cy="462" r="10" fill="#C084FC"/>
+
+  <text x="90" y="116" fill="#D8B4FE" font-size="26" font-family="Menlo, Monaco, Consolas, monospace">Apollo / GraphQL Docs</text>
+  <text x="90" y="180" fill="#F8FAFC" font-size="64" font-weight="700" font-family="Inter, Segoe UI, Arial, sans-serif">Kanban Dashboard API</text>
+  <text x="90" y="236" fill="#9CA3AF" font-size="30" font-family="Inter, Segoe UI, Arial, sans-serif">Public playground for queries, mutations, and subscriptions</text>
+
+  <rect x="90" y="288" width="500" height="236" rx="16" fill="#0A0F1E" stroke="#334155"/>
+  <text x="122" y="335" fill="#A855F7" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">query Boards {</text>
+  <text x="122" y="373" fill="#E2E8F0" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">  boards(first: 3) {</text>
+  <text x="122" y="411" fill="#E2E8F0" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">    edges { node { id title } }</text>
+  <text x="122" y="449" fill="#E2E8F0" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">  }</text>
+  <text x="122" y="487" fill="#A855F7" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">}</text>
+</svg>

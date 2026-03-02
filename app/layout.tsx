@@ -1,3 +1,5 @@
+import { AppShell } from '@/components/layout/app-shell';
+import { LocaleProvider } from '@/components/providers/locale-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { defaultLocale } from '@/lib/i18n/config';
 
@@ -7,7 +9,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang={defaultLocale} suppressHydrationWarning>
       <body className="min-h-screen antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            <AppShell>{children}</AppShell>
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

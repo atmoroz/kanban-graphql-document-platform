@@ -50,11 +50,11 @@ export function CodeBlockTabs({ tabs, tabsAriaLabel }: CodeBlockTabsProps) {
   );
 
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+    <div className="max-w-full overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
       <div
         role="tablist"
         aria-label={tabsAriaLabel}
-        className="flex flex-wrap gap-2 border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-800 dark:bg-gray-950"
+        className="flex flex-wrap gap-2 border-b   px-3 py-2 border-gray-800 bg-gray-950"
       >
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab.id;
@@ -68,8 +68,8 @@ export function CodeBlockTabs({ tabs, tabsAriaLabel }: CodeBlockTabsProps) {
               onClick={() => setActiveTabId(tab.id)}
               className={`rounded-lg px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors ${
                 isActive
-                  ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-200'
-                  : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100'
+                  ? 'bg-purple-100  bg-purple-900/40 text-purple-200'
+                  : ' text-gray-400 hover:bg-gray-800 hover:text-gray-100'
               }`}
             >
               {tab.label}
@@ -78,7 +78,7 @@ export function CodeBlockTabs({ tabs, tabsAriaLabel }: CodeBlockTabsProps) {
         })}
       </div>
 
-      <pre className="code-syntax overflow-x-auto bg-gray-100 p-4 text-sm leading-6 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+      <pre className="code-syntax max-w-full overflow-x-auto  p-4 text-sm leading-6  bg-gray-950 text-gray-100">
         <code
           className={`language-${prismLanguage}`}
           dangerouslySetInnerHTML={{ __html: highlightedCode }}

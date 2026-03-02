@@ -14,10 +14,13 @@ export const metadata: Metadata = {
     title: 'Kanban Dashboard — Public GraphQL API Playground',
     description:
       'Public, open GraphQL API built as an educational playground for GraphQL and Apollo Client.',
+      
   }),
   metadataBase: getMetadataBase(),
+  verification: {
+    google: "V375gbxGHzj7ah_QIFxF_I6EoVg3gNeSWiSHyRcuFOs",
+  },
 };
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
   return (

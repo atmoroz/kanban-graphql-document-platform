@@ -1,0 +1,45 @@
+## Source of Truth (STRICT)
+
+The ONLY source of truth for UI, layout, spacing, colors, typography, and component structure
+is the code exported from Figma and located in the `/figma` directory.
+
+No visual decisions may be made outside of this source.
+If something is unclear or missing in Figma — do NOT guess, do NOT invent.
+Use the closest existing pattern from the same Figma export.
+
+## Figma Contract
+
+The `/figma-design` directory contains generated UI code and assets.
+This directory must be treated as a design contract.
+
+Rules:
+
+- Components must be derived from Figma code
+- Class names, spacing, layout logic must follow Figma
+- Refactoring is allowed ONLY for reusability, not visual changes
+- Do NOT add new UI elements not present in Figma
+
+## Forbidden Actions
+
+- Do NOT redesign or "improve" UI
+- Do NOT adjust spacing, colors, typography
+- Do NOT add animations, transitions, or effects unless present in Figma
+- Do NOT add new components or variants
+- Do NOT change layout structure
+
+## Design Rules
+
+Layout structure must be reconstructed directly from Figma code.
+No assumptions about UX or responsiveness are allowed.
+If responsive behavior is not defined in Figma, keep desktop-only layout.
+
+## Component Extraction Rules
+
+Components may be extracted ONLY if they appear at least twice in Figma code.
+Extraction must preserve original markup and styles.
+No new props or variants unless required by Figma structure.
+
+## Page Assembly Rules
+
+Pages must be assembled strictly from existing components derived from Figma.
+Pages must not introduce new layout or UI logic.

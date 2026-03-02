@@ -6,6 +6,7 @@ import { Globe, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { BrandMark } from '@/components/ui/brand-mark';
 
 const navItems = [
   { href: '/', label: { en: 'Overview', ua: 'Огляд' } },
@@ -23,12 +24,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600">
-                <span className="font-mono text-sm text-white">K</span>
-              </div>
-              <span className="font-mono text-sm text-gray-900 dark:text-gray-100">kanban-api</span>
-            </div>
+            <BrandMark />
 
             <nav className="hidden items-center gap-1 md:flex">
               {navItems.map((item) => {

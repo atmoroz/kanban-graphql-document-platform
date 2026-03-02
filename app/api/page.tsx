@@ -1,5 +1,5 @@
-import { RoutePage } from '@/components/pages/route-page';
+import { ApiSection } from '@/components/sections/api-section';
 
 export default function ApiPage() {
-  return <RoutePage />;
+  return <ApiSection />;
 }

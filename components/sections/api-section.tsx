@@ -1,9 +1,10 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { CodeBlockTabs } from '@/components/ui/code-block-tabs';
 import { apiContent } from '@/lib/content/api';
 import { uiContent } from '@/lib/content/ui';
 
@@ -12,6 +13,7 @@ export function ApiSection() {
   const content = apiContent[locale];
   const serviceContent = uiContent[locale];
   const [activeSection, setActiveSection] = useState('getting-started');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const currentSection = useMemo(
     () => content.sections.find((section) => section.id === activeSection) ?? content.sections[0],
@@ -19,9 +21,46 @@ export function ApiSection() {
   );
 
   return (
-    <div className="flex min-h-screen">
-      <aside className="hidden w-64 border-r border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950 md:block">
-        <nav className="sticky top-20 space-y-1 p-6">
+    <div className="flex min-h-screen min-w-0 flex-col md:flex-row">
+      <aside className="sticky top-[110px] z-30 w-full border-b border-gray-200 bg-gray-50/95 backdrop-blur md:top-16 md:w-64 md:shrink-0 md:self-start md:border-b-0 md:border-r dark:border-gray-800 dark:bg-gray-950/95">
+        <div className="p-4 md:hidden">
+          <button
+            type="button"
+            onClick={() => setIsMobileNavOpen((prev) => !prev)}
+            aria-expanded={isMobileNavOpen}
+            aria-controls="api-mobile-nav"
+            className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-white px-3 py-2 text-left text-sm font-medium text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+          >
+            <span>{currentSection.title[locale]}</span>
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${isMobileNavOpen ? 'rotate-180' : ''}`}
+              aria-hidden="true"
+            />
+          </button>
+          {isMobileNavOpen ? (
+            <nav id="api-mobile-nav" className="mt-2 space-y-1">
+              {content.sections.map((section) => (
+                <button
+                  key={section.id}
+                  type="button"
+                  onClick={() => {
+                    setActiveSection(section.id);
+                    setIsMobileNavOpen(false);
+                  }}
+                  className={`w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors ${
+                    activeSection === section.id
+                      ? 'border border-purple-200 bg-purple-50 text-purple-700 dark:border-purple-800 dark:bg-purple-950/50 dark:text-purple-300'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100'
+                  }`}
+                >
+                  {section.title[locale]}
+                </button>
+              ))}
+            </nav>
+          ) : null}
+        </div>
+
+        <nav className="hidden space-y-1 p-6 md:block md:h-[calc(100vh-5rem)] md:overflow-y-auto">
           {content.sections.map((section) => (
             <button
               key={section.id}
@@ -39,22 +78,7 @@ export function ApiSection() {
         </nav>
       </aside>
 
-      <div className="w-full border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 md:hidden">
-        <select
-          value={activeSection}
-          onChange={(event) => setActiveSection(event.target.value)}
-          aria-label={serviceContent.api.mobileSectionSelectAriaLabel}
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
-        >
-          {content.sections.map((section) => (
-            <option key={section.id} value={section.id}>
-              {section.title[locale]}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <main className="max-w-4xl flex-1 px-6 py-12">
+      <main className="w-full min-w-0 flex-1 px-4 py-10 sm:px-6 sm:py-12">
         <div className="mb-8">
           <h1 className="mb-3 text-3xl font-bold text-gray-900 dark:text-gray-100">{currentSection.title[locale]}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">{currentSection.description[locale]}</p>
@@ -69,44 +93,45 @@ export function ApiSection() {
               </div>
 
               {example.description ? (
-                <p className="ml-7 text-gray-600 dark:text-gray-400">{example.description[locale]}</p>
+                <p className="text-gray-600 dark:text-gray-400 md:ml-7">{example.description[locale]}</p>
               ) : null}
 
-              <div className="ml-7 space-y-4 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                    {content.codeLabels.graphql}
-                  </p>
-                  <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                    <code>{example.code.graphql}</code>
-                  </pre>
-                </div>
-
-                {example.code.javascript ? (
-                  <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      {content.codeLabels.javascript}
-                    </p>
-                    <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                      <code>{example.code.javascript}</code>
-                    </pre>
-                  </div>
-                ) : null}
-
-                {example.code.curl ? (
-                  <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      {content.codeLabels.curl}
-                    </p>
-                    <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                      <code>{example.code.curl}</code>
-                    </pre>
-                  </div>
-                ) : null}
+              <div className="md:ml-7">
+                <CodeBlockTabs
+                  tabsAriaLabel={serviceContent.api.codeTabsAriaLabel}
+                  tabs={[
+                    {
+                      id: 'graphql',
+                      label: content.codeLabels.graphql,
+                      language: 'graphql',
+                      code: example.code.graphql,
+                    },
+                    ...(example.code.javascript
+                      ? [
+                          {
+                            id: 'javascript',
+                            label: content.codeLabels.javascript,
+                            language: 'javascript' as const,
+                            code: example.code.javascript,
+                          },
+                        ]
+                      : []),
+                    ...(example.code.curl
+                      ? [
+                          {
+                            id: 'curl',
+                            label: content.codeLabels.curl,
+                            language: 'curl' as const,
+                            code: example.code.curl,
+                          },
+                        ]
+                      : []),
+                  ]}
+                />
               </div>
 
               {example.note ? (
-                <div className="ml-7 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+                <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20 md:ml-7">
                   <p className="text-sm text-blue-700 dark:text-blue-300">
                     {content.notePrefix} {example.note[locale]}
                   </p>

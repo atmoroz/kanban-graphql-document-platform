@@ -9,3 +9,32 @@
 .dark {
   color-scheme: dark;
 }
+
+.code-syntax .token.keyword {
+  color: #c084fc;
+}
+
+.code-syntax .token.string {
+  color: #86efac;
+}
+
+.code-syntax .token.number {
+  color: #fca5a5;
+}
+
+.code-syntax .token.comment {
+  color: #94a3b8;
+}
+
+.code-syntax .token.function {
+  color: #7dd3fc;
+}
+
+.code-syntax .token.variable {
+  color: #facc15;
+}
+
+.code-syntax .token.operator,
+.code-syntax .token.punctuation {
+  color: #e2e8f0;
+}

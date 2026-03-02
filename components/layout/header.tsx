@@ -6,6 +6,7 @@ import { Globe, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { onNavClick, type NavTarget } from '@/lib/analytics';
 import { BrandMark } from '@/components/ui/brand-mark';
 import { navItems } from '@/lib/content/layout';
 
@@ -13,6 +14,11 @@ export function Header() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const { locale, toggleLocale } = useLocale();
+  const navTargetByHref: Record<(typeof navItems)[number]['href'], NavTarget> = {
+    '/': 'overview',
+    '/api': 'api',
+    '/about': 'about',
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg dark:border-gray-800 dark:bg-gray-950/80">
@@ -29,6 +35,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => onNavClick(navTargetByHref[item.href])}
                     className="relative rounded-lg px-4 py-2 text-sm font-medium transition-colors"
                   >
                     {isActive ? (
@@ -79,6 +86,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => onNavClick(navTargetByHref[item.href])}
                 className={`flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium transition-colors ${
                   isActive
                     ? 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100'

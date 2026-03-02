@@ -3,6 +3,7 @@
 import { Linkedin, Mail, Send } from 'lucide-react';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { onExternalLinkClick, onFeedbackClick } from '@/lib/analytics';
 import { PageSection } from '@/components/ui/page-section';
 import { aboutContent } from '@/lib/content/about';
 
@@ -99,6 +100,7 @@ export function AboutSection() {
             href={content.telegramHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => onExternalLinkClick('telegram')}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
             <Send className="h-5 w-5" />
@@ -109,6 +111,7 @@ export function AboutSection() {
             href={content.linkedInHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => onExternalLinkClick('linkedin')}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
             <Linkedin className="h-5 w-5" />
@@ -117,6 +120,7 @@ export function AboutSection() {
 
           <a
             href={content.emailHref}
+            onClick={onFeedbackClick}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
             <Mail className="h-5 w-5" />

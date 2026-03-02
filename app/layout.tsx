@@ -9,6 +9,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang={defaultLocale} suppressHydrationWarning>
       <body className="min-h-screen antialiased">
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="865e04fc-279f-4f56-9411-3609da511aaf">
+        </script>
         <ThemeProvider>
           <LocaleProvider>
             <AppShell>{children}</AppShell>

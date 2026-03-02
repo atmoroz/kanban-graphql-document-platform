@@ -5,10 +5,10 @@ This file MUST be read and followed before any code generation.
 ## Absolute Rules
 
 1. Always start by reading:
-   - `/prompts/DESIGN_CONTRACT.md`
-   - `/prompts/epic-init.md`
+   - `docs/prompts/DESIGN_CONTRACT.md`
+   - `docs/prompts/epic-init.md`
 
-2. The `/figma` directory is the ONLY source of truth for UI and layout.
+2. The `/figma-design` directory is the ONLY source of truth for UI and layout.
    No visual decisions may be made outside of it.
 
 3. Do NOT generate code until these files are fully processed.

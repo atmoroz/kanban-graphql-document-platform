@@ -7,12 +7,7 @@ import { useTheme } from 'next-themes';
 
 import { useLocale } from '@/components/providers/locale-provider';
 import { BrandMark } from '@/components/ui/brand-mark';
-
-const navItems = [
-  { href: '/', label: { en: 'Overview', ua: 'Огляд' } },
-  { href: '/api', label: { en: 'API / Examples', ua: 'API / Приклади' } },
-  { href: '/about', label: { en: 'About Me', ua: 'Про мене' } },
-] as const;
+import { navItems } from '@/lib/content/layout';
 
 export function Header() {
   const pathname = usePathname();

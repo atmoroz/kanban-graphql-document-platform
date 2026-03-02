@@ -1,9 +1,9 @@
 type BrandMarkProps = {
   compact?: boolean;
-  label?: string;
+  label: string;
 };
 
-export function BrandMark({ compact = false, label = 'kanban-api' }: BrandMarkProps) {
+export function BrandMark({ compact = false, label }: BrandMarkProps) {
   const badgeClass = compact
     ? 'flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br from-purple-500 to-indigo-600'
     : 'flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600';

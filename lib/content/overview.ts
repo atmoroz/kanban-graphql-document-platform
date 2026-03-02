@@ -23,7 +23,7 @@ export const overviewContent: Record<Locale, OverviewContent> = {
     title: translations.en.overview.title,
     description: translations.en.overview.description,
     endpointLabel: 'API Endpoint',
-    endpoint: 'https://api.kanban.example.com/graphql',
+    endpoint: 'https://kanban-graphql-api.onrender.com/graphql',
     primaryCardTitle: 'Full-Featured Kanban System',
     primaryCardDescription:
       'Complete implementation with boards, columns, tasks, labels, members, and real-time updates.',
@@ -40,7 +40,7 @@ export const overviewContent: Record<Locale, OverviewContent> = {
     title: translations.ua.overview.title,
     description: translations.ua.overview.description,
     endpointLabel: 'API Endpoint',
-    endpoint: 'https://api.kanban.example.com/graphql',
+    endpoint: 'https://kanban-graphql-api.onrender.com/graphql',
     primaryCardTitle: 'Повноцінна Kanban-система',
     primaryCardDescription:
       'Повна реалізація з дошками, колонками, задачами, мітками, учасниками та realtime-оновленнями.',

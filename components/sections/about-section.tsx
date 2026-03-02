@@ -3,12 +3,15 @@
 import { Linkedin, Mail, Send } from 'lucide-react';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { onExternalLinkClick, onFeedbackClick } from '@/lib/analytics';
 import { PageSection } from '@/components/ui/page-section';
 import { aboutContent } from '@/lib/content/about';
+import { uiContent } from '@/lib/content/ui';
 
 export function AboutSection() {
   const { locale } = useLocale();
   const content = aboutContent[locale];
+  const serviceContent = uiContent[locale];
 
   return (
     <PageSection>
@@ -99,9 +102,11 @@ export function AboutSection() {
             href={content.telegramHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => onExternalLinkClick('telegram')}
+            aria-label={serviceContent.about.telegramLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
-            <Send className="h-5 w-5" />
+            <Send className="h-5 w-5" aria-hidden="true" />
             <span>{content.telegramLabel}</span>
           </a>
 
@@ -109,17 +114,21 @@ export function AboutSection() {
             href={content.linkedInHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => onExternalLinkClick('linkedin')}
+            aria-label={serviceContent.about.linkedInLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
-            <Linkedin className="h-5 w-5" />
+            <Linkedin className="h-5 w-5" aria-hidden="true" />
             <span>{content.linkedInLabel}</span>
           </a>
 
           <a
             href={content.emailHref}
+            onClick={onFeedbackClick}
+            aria-label={serviceContent.about.feedbackLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
           >
-            <Mail className="h-5 w-5" />
+            <Mail className="h-5 w-5" aria-hidden="true" />
             <span>{content.emailLabel}</span>
           </a>
         </div>

@@ -5,10 +5,12 @@ import { useMemo, useState } from 'react';
 
 import { useLocale } from '@/components/providers/locale-provider';
 import { apiContent } from '@/lib/content/api';
+import { uiContent } from '@/lib/content/ui';
 
 export function ApiSection() {
   const { locale } = useLocale();
   const content = apiContent[locale];
+  const serviceContent = uiContent[locale];
   const [activeSection, setActiveSection] = useState('getting-started');
 
   const currentSection = useMemo(
@@ -41,6 +43,7 @@ export function ApiSection() {
         <select
           value={activeSection}
           onChange={(event) => setActiveSection(event.target.value)}
+          aria-label={serviceContent.api.mobileSectionSelectAriaLabel}
           className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         >
           {content.sections.map((section) => (
@@ -61,7 +64,7 @@ export function ApiSection() {
           {currentSection.examples.map((example) => (
             <section key={`${currentSection.id}-${example.title.en}`} className="space-y-4">
               <div className="flex items-center gap-2">
-                <ChevronRight className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                <ChevronRight className="h-5 w-5 text-purple-600 dark:text-purple-400" aria-hidden="true" />
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{example.title[locale]}</h2>
               </div>
 

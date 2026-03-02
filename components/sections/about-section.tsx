@@ -102,6 +102,7 @@ export function AboutSection() {
             href={content.telegramHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="click-telegram"
             onClick={() => onExternalLinkClick('telegram')}
             aria-label={serviceContent.about.telegramLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -114,6 +115,7 @@ export function AboutSection() {
             href={content.linkedInHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="click-linkedin"
             onClick={() => onExternalLinkClick('linkedin')}
             aria-label={serviceContent.about.linkedInLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -124,6 +126,7 @@ export function AboutSection() {
 
           <a
             href={content.emailHref}
+            data-umami-event="click-email"
             onClick={onFeedbackClick}
             aria-label={serviceContent.about.feedbackLinkAriaLabel}
             className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 font-medium backdrop-blur-sm transition-colors hover:bg-white/20"

@@ -71,6 +71,7 @@ export function Header() {
               href={externalLinks.githubRepoUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="click-github-repo"
               onClick={() => onExternalLinkClick('github')}
               aria-label={content.header.githubRepoAriaLabel}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-2.5 py-2 text-sm font-medium text-gray-700 transition-all hover:bg-gray-100 active:scale-95 sm:px-4 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"

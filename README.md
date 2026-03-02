@@ -102,7 +102,7 @@ docs/prompts/
 
 - canonical URL для всіх сторінок
 - OpenGraph + Twitter metadata
-- один спільний preview image: `public/social/apollo-graphql-preview.svg`
+- один спільний preview image: `public/social/apollo-graphql-preview.png`
 
 ## Важливо
 

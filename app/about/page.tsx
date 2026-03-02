@@ -1,5 +1,5 @@
 import { RoutePage } from '@/components/pages/route-page';
 
-export default function OverviewPage() {
+export default function AboutPage() {
   return <RoutePage />;
 }

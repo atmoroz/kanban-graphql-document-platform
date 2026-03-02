@@ -1,5 +1,5 @@
-import { RoutePage } from '@/components/pages/route-page';
+import { OverviewSection } from '@/components/sections/overview-section';
 
 export default function OverviewPage() {
-  return <RoutePage />;
+  return <OverviewSection />;
 }

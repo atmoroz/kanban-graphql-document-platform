@@ -12,13 +12,31 @@ export const navItems: NavItem[] = [
   { href: '/about', label: { en: translations.en.nav.about, ua: translations.ua.nav.about } },
 ];
 
-export const footerContent: Record<Locale, { copyright: string; brandLabel: string }> = {
+export const brandContent: Record<Locale, { headerLabel: string; footerLabel: string }> = {
+  en: {
+    headerLabel: 'kanban-api',
+    footerLabel: 'Kanban Dashboard GraphQL API',
+  },
+  ua: {
+    headerLabel: 'kanban-api',
+    footerLabel: 'Kanban Dashboard GraphQL API',
+  },
+};
+
+export const externalLinksContent: Record<Locale, { githubRepoUrl: string }> = {
+  en: {
+    githubRepoUrl: 'https://github.com/atmoroz/kanban-graphql-api',
+  },
+  ua: {
+    githubRepoUrl: 'https://github.com/atmoroz/kanban-graphql-api',
+  },
+};
+
+export const footerContent: Record<Locale, { copyright: string }> = {
   en: {
     copyright: '© 2026 Built for educational purposes',
-    brandLabel: 'Kanban Dashboard GraphQL API',
   },
   ua: {
     copyright: '© 2026 Створено для навчальних цілей',
-    brandLabel: 'Kanban Dashboard GraphQL API',
   },
 };

@@ -12,6 +12,7 @@ export type UiContent = {
   };
   api: {
     mobileSectionSelectAriaLabel: string;
+    codeTabsAriaLabel: string;
   };
   about: {
     telegramLinkAriaLabel: string;
@@ -33,6 +34,7 @@ export const uiContent: Record<Locale, UiContent> = {
     },
     api: {
       mobileSectionSelectAriaLabel: 'Select API section',
+      codeTabsAriaLabel: 'Code language tabs',
     },
     about: {
       telegramLinkAriaLabel: 'Open Telegram profile',
@@ -52,6 +54,7 @@ export const uiContent: Record<Locale, UiContent> = {
     },
     api: {
       mobileSectionSelectAriaLabel: 'Обрати секцію API',
+      codeTabsAriaLabel: 'Вкладки мов коду',
     },
     about: {
       telegramLinkAriaLabel: 'Відкрити Telegram профіль',

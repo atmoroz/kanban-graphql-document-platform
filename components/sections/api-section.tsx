@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import { useLocale } from '@/components/providers/locale-provider';
+import { CodeBlockTabs } from '@/components/ui/code-block-tabs';
 import { apiContent } from '@/lib/content/api';
 import { uiContent } from '@/lib/content/ui';
 
@@ -72,37 +73,38 @@ export function ApiSection() {
                 <p className="ml-7 text-gray-600 dark:text-gray-400">{example.description[locale]}</p>
               ) : null}
 
-              <div className="ml-7 space-y-4 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                    {content.codeLabels.graphql}
-                  </p>
-                  <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                    <code>{example.code.graphql}</code>
-                  </pre>
-                </div>
-
-                {example.code.javascript ? (
-                  <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      {content.codeLabels.javascript}
-                    </p>
-                    <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                      <code>{example.code.javascript}</code>
-                    </pre>
-                  </div>
-                ) : null}
-
-                {example.code.curl ? (
-                  <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      {content.codeLabels.curl}
-                    </p>
-                    <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm text-gray-800 dark:bg-gray-950 dark:text-gray-200">
-                      <code>{example.code.curl}</code>
-                    </pre>
-                  </div>
-                ) : null}
+              <div className="ml-7">
+                <CodeBlockTabs
+                  tabsAriaLabel={serviceContent.api.codeTabsAriaLabel}
+                  tabs={[
+                    {
+                      id: 'graphql',
+                      label: content.codeLabels.graphql,
+                      language: 'graphql',
+                      code: example.code.graphql,
+                    },
+                    ...(example.code.javascript
+                      ? [
+                          {
+                            id: 'javascript',
+                            label: content.codeLabels.javascript,
+                            language: 'javascript' as const,
+                            code: example.code.javascript,
+                          },
+                        ]
+                      : []),
+                    ...(example.code.curl
+                      ? [
+                          {
+                            id: 'curl',
+                            label: content.codeLabels.curl,
+                            language: 'curl' as const,
+                            code: example.code.curl,
+                          },
+                        ]
+                      : []),
+                  ]}
+                />
               </div>
 
               {example.note ? (

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const DEFAULT_SITE_URL = 'https://kanban-graphql-docs.example.com';
 const SITE_NAME = 'Kanban GraphQL Documentation';
-const PREVIEW_IMAGE_PATH = '/social/apollo-graphql-preview.svg';
+const PREVIEW_IMAGE_PATH = '/social/apollo-graphql-preview.png';
 
 const baseUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL);
 const previewImageUrl = new URL(PREVIEW_IMAGE_PATH, baseUrl).toString();

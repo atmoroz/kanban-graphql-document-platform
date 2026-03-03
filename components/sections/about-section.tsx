@@ -22,6 +22,10 @@ export function AboutSection() {
           </div>
           <div className="flex-1">
             <h1 className="mb-2 text-4xl font-bold text-gray-900 dark:text-gray-100">{content.name}</h1>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm text-green-700 dark:bg-green-950/30 dark:text-green-300">
+              <span className="h-2.5 w-2.5 rounded-full bg-green-500" aria-hidden="true" />
+              <span>{content.availabilityLabel}</span>
+            </div>
             <p className="mb-4 text-xl text-purple-600 dark:text-purple-400">{content.role}</p>
             <p className="text-base leading-relaxed text-gray-600 dark:text-gray-400">{content.intro}</p>
           </div>

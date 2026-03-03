@@ -11,6 +11,7 @@ export type AboutContent = {
   name: string;
   role: string;
   intro: string;
+  availabilityLabel: string;
   yearsBadge: string;
   productBadge: string;
   techStackTitle: string;
@@ -103,6 +104,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     name: translations.en.about.name,
     role: translations.en.about.role,
     intro: translations.en.about.intro,
+    availabilityLabel: 'Available for new opportunities',
     yearsBadge: '5+ years experience',
     productBadge: 'Product-focused',
     techStackTitle: translations.en.about.techStack,
@@ -127,6 +129,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     name: translations.ua.about.name,
     role: translations.ua.about.role,
     intro: translations.ua.about.intro,
+    availabilityLabel: 'Відкритий до нових можливостей',
     yearsBadge: '5+ років досвіду',
     productBadge: 'Продуктовий підхід',
     techStackTitle: translations.ua.about.techStack,

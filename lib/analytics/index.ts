@@ -4,7 +4,9 @@ export type AnalyticsEvent = {
 };
 
 export type NavTarget = 'overview' | 'api' | 'about';
-export type ExternalDestination = 'linkedin' | 'telegram' | 'github' | 'api';
+export type ExternalDestination = 'linkedin' | 'telegram' | 'github' | 'api' | 'example';
+export type EndpointTarget = 'api' | 'example';
+export type EndpointAction = 'open' | 'copy';
 
 export const ANALYTICS_EVENTS = {
   navOverviewClick: 'nav_overview_click',
@@ -12,6 +14,7 @@ export const ANALYTICS_EVENTS = {
   navAboutClick: 'nav_about_click',
   externalLinkClick: 'external_link_click',
   feedbackClick: 'feedback_click',
+  endpointClick: 'endpoint_click',
 } as const;
 
 export interface AnalyticsAdapter {
@@ -62,4 +65,11 @@ export function onExternalLinkClick(destination: ExternalDestination): void {
 
 export function onFeedbackClick(): void {
   trackEvent({ name: ANALYTICS_EVENTS.feedbackClick });
+}
+
+export function onEndpointClick(target: EndpointTarget, action: EndpointAction): void {
+  trackEvent({
+    name: ANALYTICS_EVENTS.endpointClick,
+    properties: { target, action },
+  });
 }

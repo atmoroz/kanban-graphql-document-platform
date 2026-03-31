@@ -9,6 +9,7 @@ export type UiContent = {
   };
   overview: {
     copyEndpointAriaLabel: string;
+    openEndpointAriaLabel: string;
   };
   api: {
     mobileSectionSelectAriaLabel: string;
@@ -31,6 +32,7 @@ export const uiContent: Record<Locale, UiContent> = {
     },
     overview: {
       copyEndpointAriaLabel: 'Copy endpoint',
+      openEndpointAriaLabel: 'Open endpoint in new tab',
     },
     api: {
       mobileSectionSelectAriaLabel: 'Select API section',
@@ -51,6 +53,7 @@ export const uiContent: Record<Locale, UiContent> = {
     },
     overview: {
       copyEndpointAriaLabel: 'Скопіювати endpoint',
+      openEndpointAriaLabel: 'Відкрити endpoint у новій вкладці',
     },
     api: {
       mobileSectionSelectAriaLabel: 'Обрати секцію API',

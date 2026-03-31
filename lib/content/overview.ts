@@ -7,6 +7,7 @@ export type OverviewContent = {
   description: string;
   endpointLabel: string;
   endpoint: string;
+  apiExampleUrl: string;
   primaryCardTitle: string;
   primaryCardDescription: string;
   secondaryCardTitle: string;
@@ -24,6 +25,7 @@ export const overviewContent: Record<Locale, OverviewContent> = {
     description: translations.en.overview.description,
     endpointLabel: 'API Endpoint',
     endpoint: 'https://kanban-graphql-api.onrender.com/graphql',
+    apiExampleUrl: 'https://kanban-next-graphql.vercel.app/',
     primaryCardTitle: 'Full-Featured Kanban System',
     primaryCardDescription:
       'Complete implementation with boards, columns, tasks, labels, members, and real-time updates.',
@@ -41,6 +43,7 @@ export const overviewContent: Record<Locale, OverviewContent> = {
     description: translations.ua.overview.description,
     endpointLabel: 'API Endpoint',
     endpoint: 'https://kanban-graphql-api.onrender.com/graphql',
+    apiExampleUrl: 'https://kanban-next-graphql.vercel.app/',
     primaryCardTitle: 'Повноцінна Kanban-система',
     primaryCardDescription:
       'Повна реалізація з дошками, колонками, задачами, мітками, учасниками та realtime-оновленнями.',

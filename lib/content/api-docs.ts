@@ -1226,6 +1226,26 @@ subscription.unsubscribe();`,
         },
       },
       {
+        title: { en: 'Task Deleted', ua: 'Задача видалена' },
+        description: { en: 'Listen for task deletions in real-time', ua: 'Слухати видалення задач в реальному часі' },
+        code: {
+          graphql: `subscription TaskDeleted($boardId: ID!) {
+  taskDeleted(boardId: $boardId) {
+    id
+    title
+    columnId
+    position
+    updatedAt
+  }
+}
+
+# Variables
+{
+  "boardId": "<BOARD_ID>"
+}`,
+        },
+      },
+      {
         title: { en: 'Column Moved', ua: 'Колонка переміщена' },
         description: { en: 'Get notified when columns are reordered', ua: 'Отримувати повідомлення при зміні порядку колонок' },
         code: {

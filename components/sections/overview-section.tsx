@@ -45,35 +45,40 @@ export function OverviewSection() {
         <div className="space-y-2">
           {[
             { url: content.endpoint, target: 'api' as const },
-            { url: content.apiExampleUrl, target: 'example' as const },
-          ].map(({ url, target }) => (
-            <div
-              key={url}
-              className="flex items-center gap-2 rounded-lg border border-purple-200 bg-white p-3 dark:border-purple-700 dark:bg-gray-900"
-            >
-              <code className="flex-1 text-sm text-purple-700 dark:text-purple-300">{url}</code>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded p-2 transition-colors hover:bg-purple-100 dark:hover:bg-purple-900/50"
-                aria-label={serviceContent.overview.openEndpointAriaLabel}
-                onClick={() => onEndpointClick(target, 'open')}
-              >
-                <ExternalLink className="h-4 w-4 text-gray-600 dark:text-gray-400" aria-hidden="true" />
-              </a>
-              <button
-                type="button"
-                onClick={() => handleCopy(url, target)}
-                className="rounded p-2 transition-colors hover:bg-purple-100 dark:hover:bg-purple-900/50"
-                aria-label={serviceContent.overview.copyEndpointAriaLabel}
-              >
-                {copiedEndpoint === url ? (
-                  <Check className="h-4 w-4 text-green-600 dark:text-green-400" aria-hidden="true" />
-                ) : (
-                  <Copy className="h-4 w-4 text-gray-600 dark:text-gray-400" aria-hidden="true" />
-                )}
-              </button>
+            { url: content.apiExampleUrl, target: 'example' as const, label: 'API Example' },
+          ].map(({ url, target, label }) => (
+            <div key={url} className="space-y-1">
+              {label ? (
+                <div className="mb-3 mt-2 flex items-center gap-2">
+                  <Terminal className="h-5 w-5 text-purple-600 dark:text-purple-400" aria-hidden="true" />
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{label}</h3>
+                </div>
+              ) : null}
+              <div className="flex items-center gap-2 rounded-lg border border-purple-200 bg-white p-3 dark:border-purple-700 dark:bg-gray-900">
+                <code className="flex-1 text-sm text-purple-700 dark:text-purple-300">{url}</code>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded p-2 transition-colors hover:bg-purple-100 dark:hover:bg-purple-900/50"
+                  aria-label={serviceContent.overview.openEndpointAriaLabel}
+                  onClick={() => onEndpointClick(target, 'open')}
+                >
+                  <ExternalLink className="h-4 w-4 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => handleCopy(url, target)}
+                  className="rounded p-2 transition-colors hover:bg-purple-100 dark:hover:bg-purple-900/50"
+                  aria-label={serviceContent.overview.copyEndpointAriaLabel}
+                >
+                  {copiedEndpoint === url ? (
+                    <Check className="h-4 w-4 text-green-600 dark:text-green-400" aria-hidden="true" />
+                  ) : (
+                    <Copy className="h-4 w-4 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+                  )}
+                </button>
+              </div>
             </div>
           ))}
         </div>
